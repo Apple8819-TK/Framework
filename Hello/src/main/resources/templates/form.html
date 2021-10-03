@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>お問い合わせフォーム</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>お問い合わせフォーム</h1>
+    <form action="#" th:action="@{confirm}" th:object="${inquiryForm}" method="post">
+    	<p>氏名: <input type="text" th:field="*{name}" /></p>
+        <p>Eメール: <input type="text" th:field="*{email}" /></p>
+        <p>内容: <textarea type="text" th:field="*{content}" /></textarea></p>
+        <p><input type="submit" value="送信" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
