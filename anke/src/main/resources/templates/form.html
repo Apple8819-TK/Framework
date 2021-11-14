@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">アンケートフォーム</title>
+</head>
+<body>
+<h1 th:text="${title}">アンケートフォーム</h1>
+<h2 th:text="${complete}"></h2>
+<form method="post" action="#" th:action="@{/survey/confirm}" th:object="${surveyForm}">
+	<label for="age">年齢：</label>
+	<input id="age" name="age" type="text" th:value="*{age}"><br>
+	<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+	<label for="satis">満足度：</label>
+	<input id="satis" name="satis" type="radio" th:value="*{satis}">1
+	<input id="satis" name="satis" type="radio" th:value="*{satis}">2
+	<input id="satis" name="satis" type="radio" th:value="*{satis}">3
+	<input id="satis" name="satis" type="radio" th:value="*{satis}">4
+	<input id="satis" name="satis" type="radio" th:value="*{satis}">5
+	<div th:if="${#fields.hasErrors('satis')}" th:errors="*{satis}"></div>
+	
+	<label for="contents">コメント：</label>
+	<textarea name="contents" id="contents" rows="3" cols="40" th:field="*{contents}"></textarea><br>
+	<div th:if="${#fields.hasErrors('contents')}" th:errors="*{contents}"></div>
+	<input type="submit" value="確認">
+</form>
+</body>
+</html>
